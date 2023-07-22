@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salud para Todos S.A.S</title>
+    <link rel="stylesheet" href="/css/estilos.css" type="text/css"/>
+</head>
+<body>
+    <header>    
+        <%- include('menu') %>
+    </header>
+    <h2 id="first_title">Lista de doctores</h2>
+    <section id = "tablas">
+        
+        <table id="tabla_doctores">
+            <thead>
+              <tr>
+                <th>Cédula del paciente</th>   
+                <th>Nombre del doctor</th>
+                <th>Especialidad</th>
+              </tr>
+            </thead>
+            <tbody id="datos_doctores">
+                <% consulta1.forEach(x =>{  %>
+                    <tr>
+                        <td><%= x.cedula %></td>
+                        <td><%= x.nombre %></td>
+                        <td><%= x.especialidad %></td>
+                    </tr>
+                <%})  %>
+            </tbody>
+        </table> 
+    </section>
+</body>
+<script src="/js/forms.js"></script>
+</html>
