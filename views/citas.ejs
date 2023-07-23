@@ -11,23 +11,26 @@
     <header>    
         <%- include('menu') %>
     </header>
-    <h2 id="first_title">Lista de doctores</h2>
+    <h2 id="first_title">Lista de citas médicas</h2>
     <section id = "tablas">
-        
-        <table id="tabla_doctores">
+        <table id="tabla_citas">
             <thead>
               <tr>
-                <th>Cédula del paciente</th>   
-                <th>Nombre del doctor</th>
-                <th>Especialidad</th>
+                <th>Fecha</th>
+                <th>Cédula del paciente</th>
+                <th>Paciente</th>  
+                <th>Especialidad</th> 
+                <th>Doctor/a</th>
               </tr>
             </thead>
-            <tbody id="datos_doctores">
+            <tbody id="datos_citas">
                 <% consulta1.forEach(x =>{  %>
                     <tr>
+                        <td><%= x.fecha %></td>
                         <td><%= x.cedula %></td>
-                        <td><%= x.nombre %></td>
+                        <td><%= x.paciente %></td>
                         <td><%= x.especialidad %></td>
+                        <td><%= x.doctor %></td>
                     </tr>
                 <%})  %>
             </tbody>
