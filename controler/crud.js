@@ -155,11 +155,11 @@ exports.api_consultaCitasMedicas = (req, res) =>{
 }
 
 exports.api_agregarPacientes = (req, res) => {
-    const nombre = req.query.nombre
-    const apellido = req.query.lastName
-    const cedula = req.query.cedula
-    const edad = req.query.edad
-    const telefono = req.query.telefono
+    const nombre = req.query.nombre || req.body.nombre
+    const apellido = req.query.lastName || req.body.apellido
+    const cedula = req.query.cedula || req.body.cedula
+    const edad = req.query.edad || req.body.edad
+    const telefono = req.query.telefono || req.body.telefono
 
     var comando = "INSERT INTO paciente (nombre, apellido, cedula, edad, telefono) VALUES ('"
     comando += nombre + "','" + apellido + "'," + cedula + "," + edad + ",'" + telefono + "')"
@@ -174,11 +174,11 @@ exports.api_agregarPacientes = (req, res) => {
     })
 }
 exports.api_agregarDoctores = (req, res) => {
-    const nombre = req.query.nombre
-    const apellido = req.query.lastName
-    const especialidad = req.query.especialidad
-    const consultorio = req.query.consultorio
-    const correo = req.query.correo
+    const nombre = req.query.nombre || req.body.nombre
+    const apellido = req.query.lastName || req.body.lastName
+    const especialidad = req.query.especialidad || req.body.especialidad
+    const consultorio = req.query.consultorio || req.body.consultorio
+    const correo = req.query.correo || req.body.correo
     var comando = "INSERT INTO doctor (nombre, apellido, especialidad, consultorio, correo) VALUES ('"
     comando += nombre + "','" + apellido + "','" + especialidad + "'," + consultorio + ",'" + correo + "')"
     console.log(comando)
@@ -192,9 +192,9 @@ exports.api_agregarDoctores = (req, res) => {
     })
 }
 exports.api_agregarCitaMedica = (req, res) => {
-    const cedula = req.query.cedula
-    const especialidad = req.query.especialidad
-    const fecha = req.query.fecha
+    const cedula = req.query.cedula || req.body.cedula
+    const especialidad = req.query.especialidad || req.body.especialidad
+    const fecha = req.query.fecha || req.body.fecha
     conexion.query("select*from paciente WHERE cedula ='" + cedula + "'" ,(error, consultaPaciente) =>{
         if(error){
             console.log('Error consultando la cedula en la tabla Paciente')

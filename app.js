@@ -1,5 +1,7 @@
-// npm install express ejs mysql   
-// npm install -g nodemon
+//npm init 
+//npm install express ejs mysql dotenv
+//npm install -g nodemon
+//npm i -D jest supertest
 
 const express = require('express')
 const server = express()
@@ -51,6 +53,8 @@ server.get('/api/pacientes', crud.api_consultaPacientes)
 server.get('/api/doctores', crud.api_consultaDoctores)
 server.get('/api/citas', crud.api_consultaCitasMedicas)
 
-server.listen(PORT, () =>{
+let serverListen = server.listen(PORT, () =>{
     console.log("Servidor funcionando en http://localhost:" + PORT)
 })
+
+module.exports = {server, serverListen}

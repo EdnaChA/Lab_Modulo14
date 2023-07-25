@@ -1,0 +1,87 @@
+--
+-- Base de datos: `medical_db`
+--
+
+--
+-- Estructura de tabla para la tabla `paciente`
+--
+-- DROP TABLE `paciente`;
+CREATE TABLE `paciente` (
+  `nombre` char(50) NOT NULL,
+  `apellido` char(50) NOT NULL,
+  `cedula` int(11) NOT NULL,
+  `edad` int(11) NULL,
+  `telefono` char(50) NULL
+);
+
+--
+-- Volcado de datos para la tabla `paciente`
+--
+
+INSERT INTO paciente (`nombre`, `apellido`, `cedula`, `edad`, `telefono`) VALUES
+('Paula', 'Ayala', 103178945, 29, '3013203409'),
+('Edna', 'Chaparro', 123456789, 30, '3202053509'),
+('Carolina', 'Acosta', 123567894, 25, '3006703380'),
+('Isabela', 'Barragan', 123789456, 22, '3112050835'),
+('Nicolas', 'Muñoz', 421039393, 34, '3162223989');
+
+--
+-- Indices de la tabla `persona`
+--
+ALTER TABLE `paciente` ADD PRIMARY KEY (`cedula`);
+
+--
+-- Estructura de tabla para la tabla `doctor`
+--
+-- DROP TABLE `doctor`;
+CREATE TABLE `doctor` (
+  `nombre` char(50) NOT NULL,
+  `apellido` char(50) NOT NULL,
+  `especialidad` char(50) NOT NULL,
+  `consultorio` int(3) NOT NULL,
+  `correo` char(50) NULL
+);
+
+--
+-- Volcado de datos para la tabla `doctor`
+--
+
+INSERT INTO doctor (`nombre`, `apellido`, `especialidad`, `consultorio`, `correo`) VALUES
+('Andrea', 'Ceballos', 'Medicina General', 408, 'a.ceballos@gmail.com'),
+('Andrea', 'Ruiz', 'Rehabilitación Física', 401, 'a.ruiz@gmail.com'),
+('Audhrey', 'Diaz', 'Medicina General', 519, 'andrea.diaz@gmail.com'),
+('Daniela', 'Acosta', 'Medicina Interna', 205, 'd.acosta@gmail.com'),
+('Erika', 'Villareal', 'Dermatología', 808, 'e.villareal@gmail.com'),
+('Fernando', 'Fonseca', 'Medicina Interna', 909, 'f.fonseca@gmail.com'),
+('Gloria', 'Rey', 'Odontología', 607, 'gloria.rey@gmail.com'),
+('Helena', 'Silva', 'Radiología', 100, 'silva.helena@gmail.com'),
+('Jennifer', 'Toro', 'Psicología', 312, 'j.toro@gmail.com'),
+('Nestor', 'Ortiz', 'Cardiología', 610, 'n.ortiz@gmail.com');
+
+--
+-- Indices de la tabla `doctor`
+--
+ALTER TABLE `doctor` ADD PRIMARY KEY (`nombre`,`especialidad`);
+
+--
+-- Estructura de tabla para la tabla `cita`
+--
+-- DROP TABLE `cita`;
+CREATE TABLE `cita` (
+  `fecha` date NOT NULL,
+  `cedula` int(11) NOT NULL,
+  `paciente` char(50) NOT NULL,
+  `especialidad` char(50) NOT NULL,
+  `doctor` char(50) NOT NULL
+);
+
+--
+-- Volcado de datos para la tabla `doctor`
+--
+INSERT INTO cita (`fecha`, `cedula`, `paciente`, `especialidad`, `doctor`) VALUES
+('2023-10-21', 123456789, 'Edna Chaparro', 'Odontología', 'Gloria Rey');
+
+--
+-- Indices de la tabla `cita`
+--
+ALTER TABLE `cita` ADD PRIMARY KEY (`fecha`,`cedula`,`doctor`);

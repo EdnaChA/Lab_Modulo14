@@ -1,0 +1,24 @@
+{
+  "dependencies": {
+    "dotenv": "^16.3.1",
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "mysql": "^2.18.1"
+  },
+  "name": "lab_modulo14",
+  "version": "1.0.0",
+  "main": "app.js",
+  "directories": {
+    "test": "tests"
+  },
+  "devDependencies": {
+    "jest": "^29.6.1",
+    "supertest": "^6.3.3"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "Edna Chaparro",
+  "license": "ISC",
+  "description": ""
+}
